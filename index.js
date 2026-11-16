@@ -7,6 +7,8 @@ const server = http.createServer((req, res) => {
         res.end("To jest OverView");
     } else if (pathName === '/product') {
         res.end("To jest produkt");
+    } else if (pathName === '/api') {
+        res.end("Api");
     } else {
         res.writeHead(404, { "Content-Type": "text/html" });
         res.end("Strona nie znaleziona");
