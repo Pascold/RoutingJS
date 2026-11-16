@@ -1,5 +1,11 @@
 # RoutingJS
 
+A simple practice project: a basic HTTP server in Node.js with manual routing, built without any frameworks. It is just a learning exercise.
+
+The server listens on port `3000` and handles two routes:
+
+- `/overview`
+- `/product`
 
 ## Run Locally
 
