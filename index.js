@@ -11,17 +11,24 @@ const server = http.createServer((req, res) => {
     const pathName = req.url;
     
     if (pathName === '/' || pathName === '/overview') {
+        res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
         res.end("To jest OverView");
     } else if (pathName === '/product') {
+        res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
         res.end("To jest produkt");
     } else if (pathName === '/api') {
-        readFile(`${__dirname}/data.json`, 'utf-8', (err, data) => {
-            const productData = JSON.parse(data);
-            console.log(productData);
-        });
-        res.end("Api");
+        readFile(`${__dirname}/data.json`, `utf-8`, (err, data) => {
+            if (err) {
+                console.error('Błąd odczytu', err)
+                res.writeHead(500, { "Content-Type": "text/html; charset=utf-8" });
+                res.end('Nie udało się wczytać pliku JSON');
+            }
+
+            res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+            res.end(data)
+        })
     } else {
-        res.writeHead(404, { "Content-Type": "text/html" });
+        res.writeHead(404, { "Content-Type": "text/html; charset=utf-8" });
         res.end("Strona nie znaleziona");
     }
 });
