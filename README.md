@@ -8,7 +8,7 @@ The server listens on port `3000` and handles these routes:
 | --- | --- |
 | `/` or `/overview` | Overview page (plain text) |
 | `/product` | Product page (plain text) |
-| `/api` | Returns the product data from `data.json` (`500` if the file can't be read) |
+| `/api` | Product data from `data.json` as JSON (`500` if the file can't be read) |
 | anything else | `404` – page not found |
 
 ## Project Structure
@@ -34,6 +34,12 @@ Start the server
 
 ```bash
   node index.js
+```
+
+Then open [http://localhost:3000](http://localhost:3000) in your browser, or try the API:
+
+```bash
+  curl http://localhost:3000/api
 ```
 
 
