@@ -22,9 +22,10 @@ const server = http.createServer((req, res) => {
                 console.error('Błąd odczytu', err)
                 res.writeHead(500, { "Content-Type": "text/html; charset=utf-8" });
                 res.end('Nie udało się wczytać pliku JSON');
+                return;
             }
 
-            res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+            res.writeHead(200, { "Content-Type": "application/json; charset=utf-8" });
             res.end(data)
         })
     } else {
