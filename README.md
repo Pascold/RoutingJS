@@ -8,7 +8,7 @@ The server listens on port `3000` and handles these routes:
 | --- | --- |
 | `/` or `/overview` | Overview page (plain text) |
 | `/product` | Product page (plain text) |
-| `/api` | Reads product data from `data.json` and logs it to the server console |
+| `/api` | Returns the product data from `data.json` (`500` if the file can't be read) |
 | anything else | `404` – page not found |
 
 ## Project Structure
